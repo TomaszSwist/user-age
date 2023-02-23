@@ -1,7 +1,5 @@
-.form-control {
+.formControl {
     margin: 0.5rem 0;
-    display: flex;
-    flex-direction: column;
   }
   
   .form-control label {
@@ -17,6 +15,7 @@
     font: inherit;
     line-height: 1.5rem;
     padding: 0 0.25rem;
+    margin-bottom: 0.5rem;
   }
   
   .form-control input:focus {
@@ -32,4 +31,12 @@
   
   .form-control.invalid label {
     color: red;
+  }
+
+  .button {
+    border: none;
+    padding: 0.5em 1em;
+    background: #8b005d;
+    color: #ccc;
+    cursor: pointer;
   }
