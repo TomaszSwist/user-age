@@ -2,10 +2,19 @@ import React from 'react'
 
 import styles from './ModalInvalidUser.module.css'
 
-const ModalInvalidUser = () => {
+import Button from '../UI/Button'
+
+const ModalInvalidUser = props => {
+	const handleCancel = () => {
+		props.cancelModal(false)
+	}
+
 	return (
-		<div>
-			<p>Username and age must be entered.</p>
+		<div className={styles.shadow}>
+			<div className={styles.modal}>
+				<p>{props.errorText}</p>
+				<Button onClick={handleCancel}>Cancel</Button>
+			</div>
 		</div>
 	)
 }

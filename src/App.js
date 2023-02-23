@@ -9,6 +9,7 @@ import ModalInvalidUser from './components/Modal/ModalInvalidUser'
 function App() {
 	const [usersList, setUsersList] = useState([{ id: 2, username: 'Andrzej', age: '35' }])
 	const [invalidUser, setInvalidUser] = useState(false)
+	const [errorText, setErrorText] = useState('')
 
 	const handleAddUser = newUser => {
 		setUsersList(prevState => {
@@ -18,22 +19,24 @@ function App() {
 		})
 	}
 
-	const handleInvalidUser = (value) => {
-    setInvalidUser(value)
-    console.log(invalidUser);
-  }
+	
+	const handleModal = (showModal, errorValue) => {
+		setInvalidUser(showModal)
+		setErrorText(errorValue)
+		console.log(errorText);
+	}
 
 	return (
 		<div>
 			<section className={styles.form}>
-				<NewUserForm onAddUser={handleAddUser} onInvalidUser={handleInvalidUser} />
+				<NewUserForm onAddUser={handleAddUser} onInvalidUser={handleModal}/>
 			</section>
 			<section className={styles.list}>
 				<UserList usersList={usersList} />
 			</section>
-      <section className={styles.modal}>
-      <ModalInvalidUser />
-      </section>
+			<section className={`${styles.modal} ${invalidUser ? styles.active : ''}`}>
+				<ModalInvalidUser cancelModal={handleModal} errorText={errorText}/>
+			</section>
 		</div>
 	)
 }

@@ -1,0 +1,20 @@
+.modal {
+	width: 30rem;
+	max-width: 90%;
+	height: fit-content;
+	padding: 2rem;
+	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #fff;
+    text-align: center;
+}
+
+.shadow {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: #36363677;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
