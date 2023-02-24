@@ -12,7 +12,7 @@ const NewUserForm = props => {
 	const addUser = e => {
 		e.preventDefault()
 		if (username.trim().length > 0 && age.trim().length > 0) {
-			if (age > 0) {
+			if (+age > 0) {
 				const newUser = {
 					id: Math.random(),
 					username: username,
@@ -41,10 +41,10 @@ const NewUserForm = props => {
 		<Card>
 			<form onSubmit={addUser}>
 				<div className={styles['form-control']}>
-					<label>Username</label>
-					<input onChange={handleUsernameInput} value={username} type='text' />
-					<label>Age (in years)</label>
-					<input onChange={handleAgeInput} value={age} type='number' />
+					<label htmlFor='username'>Username</label>
+					<input id='username' onChange={handleUsernameInput} value={username} type='text' />
+					<label htmlFor='age'>Age (in years)</label>
+					<input id='age' onChange={handleAgeInput} value={age} type='number' />
 				</div>
 				<Button type='submit' className={styles.button}>
 					Add user

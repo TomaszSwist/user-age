@@ -1,12 +1,11 @@
 import React from 'react'
 
-// import styles from './UserList'
+import styles from './User.module.css'
 
 const User = props => {
 	return (
-        <li>
-            <p>{props.username}</p>
-            <p>{props.age}</p>
+        <li className={styles.item}>
+            {props.username} ({props.age} years old)
         </li>
     )
 }
