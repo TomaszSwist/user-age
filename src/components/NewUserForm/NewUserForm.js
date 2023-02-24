@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './NewUserForm.module.css'
 
 import Button from '../UI/Button'
+import Card from '../UI/Card'
 
 const NewUserForm = props => {
 	const [username, setUsername] = useState('')
@@ -37,17 +38,19 @@ const NewUserForm = props => {
 	}
 
 	return (
-		<form onSubmit={addUser}>
-			<div className={styles['form-control']}>
-				<label>Username</label>
-				<input onChange={handleUsernameInput} value={username} type='text' />
-				<label>Age (in years)</label>
-				<input onChange={handleAgeInput} value={age} type='number' />
-			</div>
-			<Button type='submit' className={styles.button}>
-				Add user
-			</Button>
-		</form>
+		<Card>
+			<form onSubmit={addUser}>
+				<div className={styles['form-control']}>
+					<label>Username</label>
+					<input onChange={handleUsernameInput} value={username} type='text' />
+					<label>Age (in years)</label>
+					<input onChange={handleAgeInput} value={age} type='number' />
+				</div>
+				<Button type='submit' className={styles.button}>
+					Add user
+				</Button>
+			</form>
+		</Card>
 	)
 }
 

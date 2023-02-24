@@ -19,23 +19,18 @@ function App() {
 		})
 	}
 
-	
 	const handleModal = (showModal, errorValue) => {
 		setInvalidUser(showModal)
 		setErrorText(errorValue)
-		console.log(errorText);
+		console.log(errorText)
 	}
 
 	return (
 		<div>
-			<section className={styles.form}>
-				<NewUserForm onAddUser={handleAddUser} onInvalidUser={handleModal}/>
-			</section>
-			<section className={styles.list}>
-				<UserList usersList={usersList} />
-			</section>
+			<NewUserForm onAddUser={handleAddUser} onInvalidUser={handleModal} />
+			<UserList usersList={usersList} />
 			<section className={`${styles.modal} ${invalidUser ? styles.active : ''}`}>
-				<ModalInvalidUser cancelModal={handleModal} errorText={errorText}/>
+				<ModalInvalidUser cancelModal={handleModal} errorText={errorText} />
 			</section>
 		</div>
 	)
