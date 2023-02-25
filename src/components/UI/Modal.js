@@ -1,16 +1,16 @@
 import React from 'react'
 
-import styles from './ModalInvalidUser.module.css'
+import styles from './Modal.module.css'
 
-import Button from '../UI/Button'
+import Button from './Button'
 
-const ModalInvalidUser = props => {
+const Modal = props => {
 	const handleCancel = () => {
 		props.cancelModal(false)
 	}
 
 	return (
-		<div className={styles.shadow}>
+		<div className={`${styles.shadow} ${props.className} ${props.invalidUser ? styles.active : ''}`}>
 			<div className={styles.modal}>
 				<p>{props.errorText}</p>
 				<Button onClick={handleCancel}>Cancel</Button>
@@ -19,4 +19,4 @@ const ModalInvalidUser = props => {
 	)
 }
 
-export default ModalInvalidUser
+export default Modal

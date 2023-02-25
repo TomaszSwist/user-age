@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-import styles from './App.module.css'
+// import styles from './App.module.css'
 
 import NewUserForm from './components/NewUserForm/NewUserForm'
 import UserList from './components/UserList/UserList'
-import ModalInvalidUser from './components/Modal/ModalInvalidUser'
+import Modal from './components/UI/Modal'
 
 function App() {
-	const [usersList, setUsersList] = useState([{ id: 2, username: 'Andrzej', age: '35' }])
+	const [usersList, setUsersList] = useState([])
 	const [invalidUser, setInvalidUser] = useState(false)
 	const [errorText, setErrorText] = useState('')
 
@@ -29,9 +29,11 @@ function App() {
 		<div>
 			<NewUserForm onAddUser={handleAddUser} onInvalidUser={handleModal} />
 			<UserList usersList={usersList} />
-			<section className={`${styles.modal} ${invalidUser ? styles.active : ''}`}>
-				<ModalInvalidUser cancelModal={handleModal} errorText={errorText} />
-			</section>
+			<Modal
+				invalidUser={invalidUser}
+				cancelModal={handleModal}
+				errorText={errorText}
+			/>
 		</div>
 	)
 }
